@@ -1,0 +1,25 @@
+{
+  "name": "SelfShell",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo para el dashboard personal y proyectos asociados.",
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "keywords": [
+    "dashboard",
+    "monorepo",
+    "personal",
+    "SelfShell"
+  ],
+  "author": "David Gonzalez",
+  "license": "MIT",
+  "devDependencies": {
+    "turbo": "^2.5.3"
+  },
+  "packageManager": "pnpm@10.11.0"
+}

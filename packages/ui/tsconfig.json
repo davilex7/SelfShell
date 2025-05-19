@@ -1,0 +1,21 @@
+// packages/ui/tsconfig.json (Ejemplo para un paquete en `packages/`)
+{
+  "extends": "../../tsconfig.base.json", // Hereda de la configuración base
+  "compilerOptions": {
+    "module": "esnext", // O "commonjs" si es una lib para Node más tradicional
+    "jsx": "react-jsx", // O "preserve" si el consumidor lo transforma
+    "noEmit": false, // ¡Importante! Los paquetes suelen necesitar emitir archivos
+    "declaration": true, // Generar archivos .d.ts
+    "declarationMap": true, // Generar source maps para .d.ts
+    "outDir": "./dist", // Carpeta de salida para los archivos compilados
+    "baseUrl": ".", // Para que los paths internos funcionen
+    "paths": {
+      // Si este paquete tiene alias internos
+      // "@internal/*": ["./src/internal/*"]
+    }
+    // "composite": true, // Considerar si usas project references de TS
+    // "declarationDir": "./dist/types" // Opcional: directorio separado para .d.ts
+  },
+  "include": ["src/**/*"], // Solo compilar archivos dentro de src
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,51 @@
+// SelfShell/packages/types/src/index.ts
+import { z } from 'zod';
+
+// --- Tipos y Esquemas para Trackers (Series, Mangas, etc.) ---
+
+export const ItemTypeSchema = z.enum(['movie', 'series']);
+export type ItemType = z.infer<typeof ItemTypeSchema>;
+
+export const StoredItemInfoSchema = z.object({
+  tmdbId: z.number().int().positive(),
+  title: z.string().min(1),
+  type: ItemTypeSchema,
+  latestSeason: z.number().int().positive().nullable(),
+  userSeason: z.string(), // Podría ser z.coerce.number().optional().default("0")
+  userEpisode: z.string(), // Podría ser z.coerce.number().optional().default("0")
+  rating: z.number().min(0).max(5).optional().default(0),
+  posterPath: z.string().nullable().optional(),
+  releaseYear: z.string().nullable().optional(),
+  // Podrías añadir un campo opcional para diferenciar trackers si combinas datos
+  // trackerSource: z.enum(['series-tracker', 'mangas-tracker']).optional(),
+});
+export type StoredItemInfo = z.infer<typeof StoredItemInfoSchema>;
+
+export const StoredItemInfoArraySchema = z.array(StoredItemInfoSchema);
+
+// --- Tipos para Resultados de Búsqueda de TMDb ---
+export interface TmdbApiSearchResult {
+    id: number;
+    title?: string; // Para películas
+    name?: string;  // Para series de TV
+    media_type: 'movie' | 'tv'; // TMDb usa 'tv' para series
+    release_date?: string; // Para películas
+    first_air_date?: string; // Para series de TV
+    poster_path?: string | null;
+    overview?: string;
+}
+
+// --- Tipos para Recomendaciones ---
+export const RatedSeriesSchema = z.object({
+    title: z.string(),
+    rating: z.number().min(0).max(5),
+});
+
+export type RatedSeries = z.infer<typeof RatedSeriesSchema>;
+
+export const RecommendationResultSchema = z.object({
+    title: z.string(),
+    reason: z.string().optional(),
+});
+
+export type RecommendationResult = z.infer<typeof RecommendationResultSchema>;

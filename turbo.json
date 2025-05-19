@@ -1,0 +1,45 @@
+// turbo.json (en la raíz del monorepo)
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "globalDependencies": ["tsconfig.base.json"], // Recompilar si la config base de TS cambia
+  "tasks": {
+    "build": {
+      // Un paquete/app "build" depende de que sus dependencias internas del workspace
+      // ya hayan ejecutado su propia tarea "build".
+      "dependsOn": ["^build"],
+      // Los outputs son los artefactos que produce la tarea de build.
+      // Turborepo los cacheará.
+      "outputs": [
+        ".next/**", // Para apps Next.js
+        "dist/**",  // Común para bibliotecas y extensiones
+        "build/**", // Otra carpeta común de salida
+        "public/**" // Para extensiones que ponen assets directamente en public
+      ]
+    },
+    "lint": {
+      // Linting no suele producir artefactos cacheados de la misma manera,
+      // pero puedes definir outputs si tu linter los genera (ej. reportes).
+      "outputs": []
+    },
+    "test": {
+      "dependsOn": ["build"], // Opcional: si los tests necesitan un build previo
+      "outputs": ["coverage/**"]
+    },
+    "dev": {
+      // La tarea 'dev' (ej. next dev) no se cachea porque es un proceso de larga duración.
+      "cache": false,
+      "persistent": true // Indica que es un proceso de larga duración
+    },
+    "clean": {
+      // La tarea 'clean' no se cachea.
+      "cache": false
+    },
+    "placeholder": { // Para los scripts placeholder de los paquetes no desarrollados
+      "cache": false
+    },
+    "package-extension": { // Ejemplo para empaquetar una extensión
+      "dependsOn": ["build"],
+      "outputs": ["release/*.zip", "*.xpi"] // Asumiendo que generas zips o xpis
+    }
+  }
+}

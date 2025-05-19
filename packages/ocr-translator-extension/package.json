@@ -1,0 +1,11 @@
+{
+  "name": "@mi-dashboard/ocr-translator-extension",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "lint": "eslint .",
+    "placeholder": "echo 'OCR Translator Extension - Placeholder'"
+  }
+}

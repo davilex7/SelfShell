@@ -1,0 +1,1 @@
+export { default as SeriesTrackerWidget } from './SeriesTrackerWidget';

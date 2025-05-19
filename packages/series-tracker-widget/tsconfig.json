@@ -1,0 +1,11 @@
+// packages/series-tracker-widget/tsconfig.json
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx", // O "preserve", Next.js/Turbopack lo manejará
+    "baseUrl": ".",
+    "moduleResolution": "bundler" 
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", ".turbo"]
+}

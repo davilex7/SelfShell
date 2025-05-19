@@ -1,0 +1,75 @@
+# .gitignore (en la raíz del monorepo)
+
+# Dependencias
+node_modules/
+**/node_modules/
+
+# Archivos de build y artefactos
+**/dist/
+**/.next/
+**/build/
+**/*.out
+**/coverage/
+*.tgz
+
+# Cache de Turborepo
+.turbo/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Archivos de entorno
+.env
+.env*.local
+.env.*.local
+!.env.example
+!.env.sample
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de IDEs y editores
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Archivos de Test
+junit.xml
+.nyc_output
+
+# Extensiones (archivos empaquetados, si los guardas localmente antes de subirlos)
+# Podrías querer versionar los .zip/.xpi finales en una carpeta 'releases'
+# pero no los generados durante el desarrollo local.
+# Considera si quieres versionar los zips finales o no.
+# Si no, añade:
+# **/*.zip
+# **/*.xpi
+# **/*.crx
+
+# Archivos específicos de macOS
+.AppleDouble
+.LSOverride
+
+# Archivos temporales de Windows
+~$*
+
+# Otros
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

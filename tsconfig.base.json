@@ -1,0 +1,31 @@
+// tsconfig.base.json (en la raíz del monorepo)
+// Esta es una configuración base de TypeScript de la que pueden heredar otros tsconfig.json.
+{
+  "compilerOptions": {
+    "target": "es2017", // O una versión más reciente como "es2020" o "esnext"
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true, // Permitir archivos JavaScript
+    "skipLibCheck": true, // Omitir la verificación de tipos de los archivos de declaración
+    "strict": true, // Habilitar todas las opciones de verificación de tipos estrictas
+    "esModuleInterop": true, // Permite la interoperabilidad con módulos CommonJS
+    "module": "esnext", // Usar módulos ES para el código fuente
+    "moduleResolution": "bundler", // O "node" si prefieres, "bundler" es más moderno
+    "resolveJsonModule": true, // Permitir importar archivos .json
+    "isolatedModules": true, // Asegura que cada archivo pueda ser transpilado de forma aislada
+    "noEmit": true, // No emitir archivos JS (Next.js/Turborepo se encargan del build)
+                      // Para paquetes que SÍ deben emitir (ej. 'packages/ui'),
+                      // se sobreescribirá en su tsconfig.json específico.
+    "jsx": "preserve", // Preservar JSX para que Next.js/Babel lo procesen
+    "incremental": true, // Habilitar compilación incremental
+
+    // Paths base para alias (si los usas a nivel de monorepo, aunque es más común por paquete)
+    // "baseUrl": ".",
+    // "paths": {
+    //   "@mi-dashboard/ui/*": ["packages/ui/src/*"],
+    //   "@mi-dashboard/types/*": ["packages/types/src/*"]
+    // }
+    // Es preferible que cada paquete defina sus propios alias si son internos,
+    // o que el consumidor (la app) defina alias a los paquetes del workspace.
+  },
+  "exclude": ["node_modules", "**/dist", "**/.turbo", "**/.next"]
+}

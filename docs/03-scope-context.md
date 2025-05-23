@@ -44,9 +44,9 @@ SelfShell se desenvolverá dentro del siguiente marco técnico:
 
 El siguiente diagrama visualiza los límites de SelfShell y sus interacciones principales con el usuario (desarrollador) y los sistemas externos.
 
-<div class="mermaid">
+```mermaid
 graph TD
-    A["👤 Usuario (Desarrollador)"] --> B{SelfShell Dashboard (apps/dashboard)};
+    A["👤 Usuario (Desarrollador)"] --> B{"SelfShell Dashboard (apps/dashboard)"};
 
     subgraph Monorepo_SelfShell [Monorepo SelfShell]
         direction LR
@@ -54,7 +54,7 @@ graph TD
         B --> W_MT["Widget Mangas Tracker (packages/mangas-tracker-widget)"];
         B --> W_VS["Widget Video Speed (packages/video-speed-extension)"];
         B --> W_OCR["Widget OCR Translator (packages/ocr-translator-widget)"];
-        B --> W_Util["Widgets de Utilidad (Reloj, Notas, etc.)<br/>(internos a apps/dashboard)"];
+        B --> W_Util["Widgets de Utilidad<br/>(Reloj, Notas, etc.)<br/>(internos a apps/dashboard)"];
 
         W_ST --> API_ST["API Series Tracker (apps/series-tracker)"];
         W_MT --> API_MT["API Mangas Tracker (apps/mangas-tracker)"];
@@ -83,7 +83,7 @@ graph TD
     
     API_ST --> API_TMDB["🌐 TMDb API"];
     API_ST --> API_GEMINI["🌐 Google Gemini API"];
-    API_MT --> API_MANGA_INFO["🌐 API Info Mangas (ej. MAL, AniList)"];
+    API_MT --> API_MANGA_INFO["🌐 API Info Mangas<br/>(ej. MAL, AniList)"];
 
     B --> LS["localStorage (Navegador)"];
 
@@ -106,7 +106,7 @@ graph TD
     class EXT_VS,EXT_OCR,DESKTOP_OCR otherProject;
     class API_TMDB,API_GEMINI,API_MANGA_INFO externalApi;
     class LS browserStorage;
-</div>
+```
 
 **Leyenda del Diagrama:**
 
@@ -121,8 +121,3 @@ graph TD
 * **🔘 localStorage:** Almacenamiento del navegador.
 
 El diagrama ilustra cómo el Dashboard actúa como el principal punto de agregación, mientras que el usuario puede interactuar directamente con las extensiones y la aplicación de escritorio. Las APIs de los trackers sirven como microservicios para los widgets correspondientes.
-
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true });
-</script>

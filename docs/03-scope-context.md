@@ -44,6 +44,7 @@ SelfShell se desenvolverá dentro del siguiente marco técnico:
 
 El siguiente diagrama visualiza los límites de SelfShell y sus interacciones principales con el usuario (desarrollador) y los sistemas externos.
 
+```markdown
 ```mermaid
 graph TD
     A["👤 Usuario (Desarrollador)"] --> B{SelfShell Dashboard (apps/dashboard)};
@@ -106,6 +107,7 @@ graph TD
     class EXT_VS,EXT_OCR,DESKTOP_OCR otherProject;
     class API_TMDB,API_GEMINI,API_MANGA_INFO externalApi;
     class LS browserStorage;
+```
 ```
 
 **Leyenda del Diagrama:**

@@ -1,0 +1,33 @@
+// apps/dashboard/tsconfig.json
+{
+  "extends": "../../tsconfig.base.json", // Hereda de la configuración base del monorepo
+  "compilerOptions": {
+    // "noEmit": true, // Ya está en tsconfig.base.json, Next.js maneja el emit
+    "jsx": "preserve", // Next.js requiere esto
+    // El alias "@/*" ya fue configurado por create-next-app
+    // y debería funcionar con el baseUrl de Next.js.
+    // Si no, asegúrate que baseUrl y paths estén correctos aquí.
+    "baseUrl": ".", // create-next-app suele poner esto
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+    // Puedes añadir "incremental": true si Next.js no lo gestiona por defecto
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts" // Para tipos generados por Next.js
+  ],
+  "exclude": [
+    "node_modules"
+    // No necesitas excluir dist, .turbo, etc. aquí si ya está en el base
+    // y este tsconfig.json es solo para la app Next.js
+  ]
+}
+

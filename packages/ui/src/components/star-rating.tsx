@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Star } from "lucide-react"; // Only need the full Star icon now
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 
 interface StarRatingProps extends React.HTMLAttributes<HTMLDivElement> {
     rating: number; // Can now be a decimal (e.g., 3.5)

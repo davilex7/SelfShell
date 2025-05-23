@@ -2,7 +2,7 @@
 // Componente simple para renderizar iconos SVG, especialmente de lucide-react.
 
 import React from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '../lib/utils';
 
 export interface IconProps extends React.SVGProps<SVGSVGElement> {
   as: React.ElementType;

@@ -44,7 +44,7 @@ SelfShell se desenvolverá dentro del siguiente marco técnico:
 
 El siguiente diagrama visualiza los límites de SelfShell y sus interacciones principales con el usuario (desarrollador) y los sistemas externos.
 
-```mermaid
+<div class="mermaid">
 graph TD
     A["👤 Usuario (Desarrollador)"] --> B{"SelfShell Dashboard (apps/dashboard)"};
 
@@ -106,7 +106,7 @@ graph TD
     class EXT_VS,EXT_OCR,DESKTOP_OCR otherProject;
     class API_TMDB,API_GEMINI,API_MANGA_INFO externalApi;
     class LS browserStorage;
-```
+</div>
 
 **Leyenda del Diagrama:**
 
@@ -121,3 +121,8 @@ graph TD
 * **🔘 localStorage:** Almacenamiento del navegador.
 
 El diagrama ilustra cómo el Dashboard actúa como el principal punto de agregación, mientras que el usuario puede interactuar directamente con las extensiones y la aplicación de escritorio. Las APIs de los trackers sirven como microservicios para los widgets correspondientes.
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>

@@ -6,7 +6,7 @@ Este capítulo examina la estructura interna de SelfShell, identificando sus mó
 
 El siguiente diagrama ofrece una representación visual de los paquetes y aplicaciones que conforman el monorepo de SelfShell, enfatizando cómo se relacionan y dependen unos de otros.
 
-```mermaid
+<div class="mermaid">
 graph TD
     subgraph Monorepo_SelfShell ["Monorepo: SelfShell"]
         direction LR
@@ -75,7 +75,7 @@ graph TD
     class P_UI,P_TYPES sharedLib;
     class P_STW,P_MTW,P_OTW,P_VSW,P_UtilW widgetPkg;
     class P_VSE,P_OTE,P_OTD otherArtifact;
-```
+</div>
 
 ## 5.2. Descripción de Componentes Principales
 
@@ -131,3 +131,8 @@ Las interacciones entre estos bloques de construcción se formalizan mediante la
 * **API de Componentes de Widget (`WidgetProps`):** Definida en `apps/dashboard/src/types/index.ts`. Detalla las props que cada widget recibe del dashboard (`instanceConfig`, `definition`, callbacks).
 * **API de Paquetes Compartidos (`@mi-dashboard/ui`, `@mi-dashboard/types`):** Determinada por las exportaciones en sus archivos `src/index.ts` (componentes, hooks, tipos, etc.).
 * **Configuración de Widgets (`WidgetDefinition`, `WidgetInstanceConfig`):** Definida en `apps/dashboard/src/types/index.ts`. Estructura para el registro y la gestión de instancias de widgets.
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>

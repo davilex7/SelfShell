@@ -19,7 +19,7 @@ Este flujo detalla el proceso desde el acceso del usuario hasta la presentación
     * **Actualización del Widget:** `SeriesTrackerWidget` recibe el JSON, actualiza su estado `items`, `isLoading = false`, y se re-renderiza.
 8.  **Otros Widgets:** Widgets locales (ej., `ClockWidget`) se renderizan directamente.
 
-```mermaid
+<div class="mermaid">
 sequenceDiagram
     actor U as Usuario
     participant B as Navegador
@@ -46,7 +46,7 @@ sequenceDiagram
     B->>STW_FE: Datos recibidos
     STW_FE->>STW_FE: setState(items), setIsLoading(false)
     STW_FE->>D_FE: Re-renderiza con datos
-```
+</div>
 
 ## 6.2. Escenario: Usuario Añade un Nuevo Widget
 
@@ -71,3 +71,8 @@ sequenceDiagram
 3.  **Función `debouncedSave`:** Ejecuta `fetch POST` a `/api/series-tracker/items` con lista actualizada.
 4.  **Procesamiento por API:** API de `series-tracker` actualiza `tracker-data.json`.
 5.  **Respuesta en `SeriesTrackerWidget`:** Recibe confirmación, puede mostrar `toast`.
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>

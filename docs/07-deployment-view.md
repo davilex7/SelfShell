@@ -27,7 +27,7 @@ El entorno de desarrollo local está optimizado para facilitar la codificación,
     * La configuración del dashboard se guarda en el `localStorage` del navegador.
 * **Desarrollo de Otros Artefactos:** Las extensiones se cargan desempaquetadas en el navegador; las apps de escritorio se compilan y ejecutan localmente.
 
-```mermaid
+<div class="mermaid">
 graph TD
     subgraph MAQ_DEV [Máquina de Desarrollo Local]
         direction LR
@@ -56,7 +56,7 @@ graph TD
         USER_DEV -- Carga/Prueba --> BROWSER_EXT["Navegador con<br/>Extensiones Locales"]
         USER_DEV -- Ejecuta/Prueba --> DESKTOP_APP_DEV["App Escritorio OCR<br/>(Build Local)"]
     end
-```
+</div>
 
 ## 7.2. Entorno de Producción (Propuesta)
 
@@ -74,7 +74,7 @@ Para el despliegue de SelfShell en un entorno de producción accesible globalmen
     * **App de Escritorio:** Compilada y distribuida mediante GitHub Releases o similar.
 * **Gestión de Secretos:** Claves API y credenciales de BD se configurarán como variables de entorno seguras en la plataforma de despliegue.
 
-```mermaid
+<div class="mermaid">
 graph TD
     USER_PROD["👤<br/>Usuario Final<br/>(Internet)"]
 
@@ -123,7 +123,7 @@ graph TD
     class DB database;
     class STORE_CHROME,STORE_FIREFOX,DOWNLOAD_DESKTOP store;
     class EXT_API_TMDB,EXT_API_GEMINI,EXT_API_MANGA externalService;
-```
+</div>
 
 **Consideraciones Adicionales para Producción:**
 
@@ -131,3 +131,8 @@ graph TD
 * **Dominios y DNS:** Configuración adecuada para el dashboard y las APIs.
 * **Seguridad:** HTTPS, protección de APIs, gestión segura de secretos.
 * **Escalabilidad:** Aprovechar las capacidades de escalado de la plataforma elegida.
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>

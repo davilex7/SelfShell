@@ -1,0 +1,19 @@
+# docs/_config.yml
+title: SelfShell - Documentación de Arquitectura
+description: Documentación detallada del proyecto SelfShell siguiendo la plantilla Arc42.
+theme: jekyll-theme-minimal # O prueba con jekyll-theme-cayman, jekyll-theme-hacker, etc.
+
+# Opcional: Configuración para que los enlaces a .md funcionen bien y se vean bonitos
+# permalink: /:title/ # Esto puede requerir que tus archivos no tengan números al principio si quieres URLs limpias
+
+# Para que Mermaid funcione correctamente con algunos temas de Jekyll o configuraciones
+# (GitHub Pages ya tiene soporte nativo, pero esto no debería dañar)
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter_opts:
+    disable: true # Deshabilitar el resaltador de Jekyll si interfiere con el de GitHub para Mermaid
+
+plugins:
+  - jekyll-seo-tag # Para mejor SEO si tu sitio es público
